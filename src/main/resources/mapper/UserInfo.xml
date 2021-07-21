@@ -14,26 +14,26 @@
 	<select id="selectUserByIdAndPw" parameterType="String" resultType="com.example.demo.dto.UserInfo">
 		select *
 		  from user_info
-		 where user_id = #{id}
-		   and user_pw = #{pw}
+		 where user_id = #{param1}
+		   and user_pw = #{param2}
 	</select>
 
 	<!-- 유저 등록 -->
 	<insert id="insertUser" parameterType="UserInfo">
-		insert into user_info values (
-			#{userId}, #{userPw}, #{userNick}, #{userName}, #{userGender}, #{userEmail}, #{userPhone}, #{userBirth}
+		insert into user_info (user_no, user_id, user_pw, user_name, user_nick, user_gender, user_email, user_phone, user_birth ) values (
+			null, #{userId}, #{userPw}, #{userName}, #{userNick}, #{userGender}, #{userEmail}, #{userPhone}, #{userBirth}
 		)
 	</insert>
 	
 	<!-- 유저 수정 -->
 	<update id="updateUser" parameterType="UserInfo">
 		update user_info
-		   set user_pw = #{userPw},
+		   set user_pw = #{userPw}
 		 where user_id = #{userId}
 	</update>
 
 	<!-- 유저 삭제 -->
-	<delete id="deleteBoard" parameterType="UserInfo">
+	<delete id="deleteUser" parameterType="UserInfo">
 		delete 
 		  from user_info
 		 where user_id = #{userId}

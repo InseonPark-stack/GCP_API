@@ -25,14 +25,10 @@ public class UserController {
         return new ResponseEntity<List<UserInfo>>(userServiceImpl.selectUser(), HttpStatus.OK);
     }
 
-    @ApiOperation(value = "로그인할때 사용", response = String.class)
+    @ApiOperation(value = "로그인할때 사용", response = UserInfo.class)
     @GetMapping("/login")
-    public ResponseEntity<String> getUserLogin(@RequestParam String id, @RequestParam String pw){
-        System.out.println(userServiceImpl.selectUserByIdAndPw(id, pw).getUserId());
-        if(userServiceImpl.selectUserByIdAndPw(id, pw) != null){
-            return new ResponseEntity<String>("로그인 완료", HttpStatus.OK);
-        }
-        return new ResponseEntity<String>("로그인 실패", HttpStatus.NOT_FOUND);
+    public ResponseEntity<UserInfo> getUserLogin(@RequestParam String id, @RequestParam String pw){
+        return new ResponseEntity<UserInfo>(userServiceImpl.selectUserByIdAndPw(id, pw), HttpStatus.OK);
     }
 
     @ApiOperation(value = "회원정보 리스트 가져오기", response = String.class)

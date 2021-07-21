@@ -12,6 +12,8 @@ COPY --from=builder build/libs/*.jar app.jar
 
 VOLUME /tmp
 EXPOSE 7272
+
 # ARG JAR_FILE=build/libs/demo-0.0.1-SNAPSHOT.jar
 # ADD ${JAR_FILE} to-do-springboot.jar
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/.urandom","-jar","/app.jar"]
+

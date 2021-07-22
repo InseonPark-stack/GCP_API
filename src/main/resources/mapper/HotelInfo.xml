@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.HotelDAO">
+
+    <!-- 유저 넘버 받아서 예약된 호텔 정보 조회 -->
+    <select id="getReservationHotelInfo" resultType="HotelInfo">
+        SELECT hi.*
+        FROM hotel_info AS hi
+        JOIN
+            (SELECT hotel_no
+            FROM reserved_hotel AS rh
+            JOIN travel_info AS ti
+            ON rh.travel_no = ti.travel_no
+            WHERE user_no = #{param1}
+            AND ti.travel_reservationStatus = "예약됨") AS qr
+        ON hi.hotel_no = qr.hotel_no
+    </select>
+
+</mapper>

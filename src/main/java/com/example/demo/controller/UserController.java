@@ -18,7 +18,6 @@ public class UserController {
     @Autowired
     private UserService userServiceImpl;
 
-
     @ApiOperation(value = "회원정보 리스트 가져오기", response = List.class)
     @GetMapping
     public ResponseEntity<List<UserInfo>> getListUserInfo(){
@@ -43,7 +42,7 @@ public class UserController {
 
     @ApiOperation(value = "닉네임 중복 확인", response = String.class)
     @GetMapping("/checkNick")
-    public ResponseEntity<String> chekcInck(@RequestParam String nick){
+    public ResponseEntity<String> checkNick(@RequestParam String nick){
         String temp = "중복 아님";
         if(userServiceImpl.selectUserByNick(nick) != null) {
             temp = "중복";
@@ -51,21 +50,21 @@ public class UserController {
         return new ResponseEntity<String>(temp, HttpStatus.OK);
     }
 
-    @ApiOperation(value = "회원정보 리스트 가져오기", response = String.class)
+    @ApiOperation(value = "회원가입", response = String.class)
     @PostMapping
     public ResponseEntity<String> insertUser(@RequestBody UserInfo userInfo){
         return userServiceImpl.insertUser(userInfo) ? new ResponseEntity<String>("등록성공", HttpStatus.OK)
                 : new ResponseEntity<String> ("등록실패", HttpStatus.NOT_FOUND);
     }
 
-    @ApiOperation(value = "회원정보 리스트 가져오기", response = String.class)
+    @ApiOperation(value = "비밀번호 수정", response = String.class)
     @PutMapping
     public ResponseEntity<String> updateUser(@RequestBody UserInfo userInfo){
         return userServiceImpl.updateUser(userInfo) ? new ResponseEntity<String>("등록성공", HttpStatus.OK)
                 : new ResponseEntity<String> ("등록실패", HttpStatus.NOT_FOUND);
     }
 
-    @ApiOperation(value = "회원정보 리스트 가져오기", response = String.class)
+    @ApiOperation(value = "회원정보 삭제", response = String.class)
     @DeleteMapping
     public ResponseEntity<String> deleteUser(@RequestBody UserInfo userInfo){
         return userServiceImpl.deleteUser(userInfo) ? new ResponseEntity<String>("등록성공", HttpStatus.OK)

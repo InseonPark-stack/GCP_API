@@ -14,7 +14,7 @@
             JOIN travel_info AS ti
             ON rh.travel_no = ti.travel_no
             WHERE user_no = #{param1}
-            AND ti.travel_reservationStatus = "예약됨") AS qr
+            AND ti.travel_reservation_status = "예약됨") AS qr
         ON hi.hotel_no = qr.hotel_no
     </select>
 

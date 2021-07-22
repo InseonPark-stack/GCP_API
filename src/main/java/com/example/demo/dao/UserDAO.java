@@ -10,6 +10,8 @@ public interface UserDAO {
 
     List<UserInfo> selectUser();
     UserInfo selectUserByIdAndPw(String id, String pw);
+    UserInfo selectUserById(String id);
+    UserInfo selectUserByNick(String nick);
     int insertUser(UserInfo userInfo);
     int updateUser(UserInfo userInfo);
     int deleteUser(UserInfo userInfo);

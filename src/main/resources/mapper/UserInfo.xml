@@ -18,13 +18,27 @@
 		   and user_pw = #{param2}
 	</select>
 
+	<!-- 이름으로 유저 검색 -->
+	<select id="selectUserById" parameterType="String" resultType="UserInfo">
+		select *
+		from user_info
+		where user_id = #{param1}
+	</select>
+
+	<!-- 닉네임으로 유저 검색 -->
+	<select id="selectUserByNick" parameterType="String" resultType="UserInfo">
+		select *
+		from user_info
+		where user_nick = #{param1}
+	</select>
+
 	<!-- 유저 등록 -->
 	<insert id="insertUser" parameterType="UserInfo">
 		insert into user_info (user_no, user_id, user_pw, user_name, user_nick, user_gender, user_email, user_phone, user_birth ) values (
 			null, #{userId}, #{userPw}, #{userName}, #{userNick}, #{userGender}, #{userEmail}, #{userPhone}, #{userBirth}
 		)
 	</insert>
-	
+
 	<!-- 유저 수정 -->
 	<update id="updateUser" parameterType="UserInfo">
 		update user_info

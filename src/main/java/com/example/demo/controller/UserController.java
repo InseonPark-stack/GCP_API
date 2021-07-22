@@ -31,6 +31,26 @@ public class UserController {
         return new ResponseEntity<UserInfo>(userServiceImpl.selectUserByIdAndPw(id, pw), HttpStatus.OK);
     }
 
+    @ApiOperation(value = "아이디 중복 확인", response = String.class)
+    @GetMapping("/checkId")
+    public ResponseEntity<String> checkId(@RequestParam String id){
+        String temp = "중복 아님";
+        if(userServiceImpl.selectUserById(id) != null) {
+            temp = "중복";
+        }
+        return new ResponseEntity<String>(temp, HttpStatus.OK);
+    }
+
+    @ApiOperation(value = "닉네임 중복 확인", response = String.class)
+    @GetMapping("/checkNick")
+    public ResponseEntity<String> chekcInck(@RequestParam String nick){
+        String temp = "중복 아님";
+        if(userServiceImpl.selectUserByNick(nick) != null) {
+            temp = "중복";
+        }
+        return new ResponseEntity<String>(temp, HttpStatus.OK);
+    }
+
     @ApiOperation(value = "회원정보 리스트 가져오기", response = String.class)
     @PostMapping
     public ResponseEntity<String> insertUser(@RequestBody UserInfo userInfo){

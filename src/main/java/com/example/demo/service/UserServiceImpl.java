@@ -25,6 +25,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserInfo selectUserById(String id) {
+        return userDAO.selectUserById(id);
+    }
+
+    @Override
+    public UserInfo selectUserByNick(String nick) {
+        return userDAO.selectUserByNick(nick);
+    }
+
+    @Override
     @Transactional
     public boolean insertUser(UserInfo userInfo) {
         return userDAO.insertUser(userInfo) >= 1;

@@ -10,6 +10,10 @@ public interface UserService{
 
     UserInfo selectUserByIdAndPw(String id, String pw);
 
+    UserInfo selectUserById(String id);
+
+    UserInfo selectUserByNick(String nick);
+
     boolean insertUser(UserInfo userInfo);
 
     boolean updateUser(UserInfo userInfo);

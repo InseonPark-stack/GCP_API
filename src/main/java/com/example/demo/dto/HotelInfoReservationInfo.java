@@ -9,11 +9,13 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class HotelInfo {
+public class HotelInfoReservationInfo {
     private int hotelNo;
     private String hotelName;
     private String hotelPhoto;
     private String hotelLocation;
     private String hotelGrade;
     private String hotelBreakfast;
+    private Date rezHotelCheckIn;
+    private Date rezHotelCheckOut;
 }

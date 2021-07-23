@@ -8,4 +8,6 @@ import java.util.List;
 @Mapper
 public interface FlightDAO {
     List<FlightInfoReservationInfo> getReservationFlightInfoByUserNo(int no);
+    List<FlightInfoReservationInfo> getRunningFlightInfoByUserNo(int no);
+    List<FlightInfoReservationInfo> getCancelReservationFlightInfoByUserNo(int no);
 }

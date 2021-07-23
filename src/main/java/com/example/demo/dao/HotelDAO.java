@@ -9,4 +9,6 @@ import java.util.List;
 @Mapper
 public interface HotelDAO {
     List<HotelInfoReservationInfo> getReservationHotelInfoByUserNo(int no);
+    List<HotelInfoReservationInfo> getRunningHotelInfoByUserNo(int no);
+    List<HotelInfoReservationInfo> getCancelInfoByUserNo(int no);
 }

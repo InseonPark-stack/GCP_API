@@ -17,4 +17,14 @@ public class HotelServiceImpl implements HotelService{
     public List<HotelInfoReservationInfo> getReservationHotelInfo(int no) {
         return hotelDAO.getReservationHotelInfoByUserNo(no);
     }
+
+    @Override
+    public List<HotelInfoReservationInfo> getRunningHotelInfoByUserNo(int no) {
+        return hotelDAO.getRunningHotelInfoByUserNo(no);
+    }
+
+    @Override
+    public List<HotelInfoReservationInfo> getCancelInfoByUserNo(int no) {
+        return hotelDAO.getCancelInfoByUserNo(no);
+    }
 }

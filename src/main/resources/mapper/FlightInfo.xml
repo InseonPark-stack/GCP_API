@@ -18,4 +18,31 @@
         ON fi.flight_no = qr.flight_no
     </select>
 
+    <!-- 유저 넘버 받아서 취소됨 비행기 정보 조회 -->
+    <select id="getCancelReservationFlightInfoByUserNo" resultType="FlightInfoReservationInfo">
+        SELECT fi.* , qr.rez_flight_start_date, qr.rez_flight_end_date, qr.rez_flight_start_place, qr.rez_flight_end_place
+        FROM flight_info AS fi
+        JOIN
+        (SELECT rf.*
+        FROM reserved_flight AS rf
+        JOIN travel_info AS ti
+        ON rf.travel_no = ti.travel_no
+        WHERE user_no = #{param1}
+        AND ti.travel_reservation_status = "취소됨") AS qr
+        ON fi.flight_no = qr.flight_no
+    </select>
+
+    <!-- 유저 넘버 받아서 진행중 비행기 정보 조회 -->
+    <select id="getRunningFlightInfoByUserNo" resultType="FlightInfoReservationInfo">
+        SELECT fi.* , qr.rez_flight_start_date, qr.rez_flight_end_date, qr.rez_flight_start_place, qr.rez_flight_end_place
+        FROM flight_info AS fi
+        JOIN
+        (SELECT rf.*
+        FROM reserved_flight AS rf
+        JOIN travel_info AS ti
+        ON rf.travel_no = ti.travel_no
+        WHERE user_no = #{param1}
+        AND ti.travel_reservation_status = "진행중") AS qr
+        ON fi.flight_no = qr.flight_no
+    </select>
 </mapper>

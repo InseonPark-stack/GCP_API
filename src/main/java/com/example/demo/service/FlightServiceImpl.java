@@ -18,4 +18,14 @@ public class FlightServiceImpl implements FlightService{
     public List<FlightInfoReservationInfo> getReservationFlightInfoByUserNo(int no) {
         return flightDAO.getReservationFlightInfoByUserNo(no);
     }
+
+    @Override
+    public List<FlightInfoReservationInfo> getRunningFlightInfoByUserNo(int no) {
+        return flightDAO.getRunningFlightInfoByUserNo(no);
+    }
+
+    @Override
+    public List<FlightInfoReservationInfo> getCancelReservationFlightInfoByUserNo(int no) {
+        return flightDAO.getCancelReservationFlightInfoByUserNo(no);
+    }
 }

@@ -5,7 +5,7 @@
 <mapper namespace="com.example.demo.dao.HotelDAO">
 
     <!-- 유저 넘버 받아서 예약된 호텔 정보 조회 -->
-    <select id="getReservationHotelInfo" resultType="HotelInfoReservationInfo">
+    <select id="getReservationHotelInfoByUserNo" resultType="HotelInfoReservationInfo">
         SELECT hi.* , qr.rez_hotel_check_in , qr.rez_hotel_check_out
         FROM hotel_info AS hi
         JOIN

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.FlightDAO">
+
+    <!-- 유저 넘버 받아서 예약된 비행기 정보 조회 -->
+    <select id="getReservationFlightInfoByUserNo" resultType="FlightInfoReservationInfo">
+        SELECT fi.* , qr.rez_flight_start_date, qr.rez_flight_end_date, qr.rez_flight_start_place, qr.rez_flight_end_place
+        FROM flight_info AS fi
+        JOIN
+            (SELECT rf.*
+            FROM reserved_flight AS rf
+            JOIN travel_info AS ti
+            ON rf.travel_no = ti.travel_no
+            WHERE user_no = #{param1}
+            AND ti.travel_reservation_status = "예약됨") AS qr
+        ON fi.flight_no = qr.flight_no
+    </select>
+
+</mapper>

@@ -8,5 +8,5 @@ import java.util.List;
 
 @Mapper
 public interface HotelDAO {
-    List<HotelInfoReservationInfo> getReservationHotelInfo(int no);
+    List<HotelInfoReservationInfo> getReservationHotelInfoByUserNo(int no);
 }

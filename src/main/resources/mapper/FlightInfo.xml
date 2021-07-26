@@ -6,7 +6,7 @@
 
     <!-- 유저 넘버 받아서 예약된 비행기 정보 조회 -->
     <select id="getReservationFlightInfoByUserNo" resultType="FlightInfoReservationInfo">
-        SELECT fi.* , qr.rez_flight_start_date, qr.rez_flight_end_date, qr.rez_flight_start_place, qr.rez_flight_end_place
+        SELECT fi.* , qr.travel_no, qr.rez_flight_start_date, qr.rez_flight_end_date, qr.rez_flight_start_place, qr.rez_flight_end_place
         FROM flight_info AS fi
         JOIN
             (SELECT rf.*
@@ -20,7 +20,7 @@
 
     <!-- 유저 넘버 받아서 취소됨 비행기 정보 조회 -->
     <select id="getCancelReservationFlightInfoByUserNo" resultType="FlightInfoReservationInfo">
-        SELECT fi.* , qr.rez_flight_start_date, qr.rez_flight_end_date, qr.rez_flight_start_place, qr.rez_flight_end_place
+        SELECT fi.* , qr.travel_no, qr.rez_flight_start_date, qr.rez_flight_end_date, qr.rez_flight_start_place, qr.rez_flight_end_place
         FROM flight_info AS fi
         JOIN
             (SELECT rf.*
@@ -34,7 +34,7 @@
 
     <!-- 유저 넘버 받아서 진행중 비행기 정보 조회 -->
     <select id="getRunningFlightInfoByUserNo" resultType="FlightInfoReservationInfo">
-        SELECT fi.* , qr.rez_flight_start_date, qr.rez_flight_end_date, qr.rez_flight_start_place, qr.rez_flight_end_place
+        SELECT fi.* , qr.travel_no, qr.rez_flight_start_date, qr.rez_flight_end_date, qr.rez_flight_start_place, qr.rez_flight_end_place
         FROM flight_info AS fi
         JOIN
             (SELECT rf.*

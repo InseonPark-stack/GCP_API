@@ -14,6 +14,7 @@ public class FlightInfoReservationInfo {
     private String flightName;
     private String flightAirline;
     private String flightBaggage;
+    private int travelNo;
     private Date rezFlightStartDate;
     private Date rezFlightEndDate;
     private String rezFlightStartPlace;

@@ -8,4 +8,6 @@ import java.util.List;
 @Mapper
 public interface TravelDAO {
     List<TravelInfo> getTravelInfoByUserNo(int no);
+    int updateRezStatus(int no);
+    int updateCancelStatus(int no);
 }

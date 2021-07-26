@@ -23,12 +23,12 @@
         SELECT hi.* , qr.rez_hotel_check_in , qr.rez_hotel_check_out
         FROM hotel_info AS hi
         JOIN
-        (SELECT rh.*
-        FROM reserved_hotel AS rh
-        JOIN travel_info AS ti
-        ON rh.travel_no = ti.travel_no
-        WHERE user_no = #{param1}
-        AND ti.travel_reservation_status = "취소됨") AS qr
+            (SELECT rh.*
+            FROM reserved_hotel AS rh
+            JOIN travel_info AS ti
+            ON rh.travel_no = ti.travel_no
+            WHERE user_no = #{param1}
+            AND ti.travel_reservation_status = "취소됨") AS qr
         ON hi.hotel_no = qr.hotel_no
     </select>
 
@@ -37,12 +37,12 @@
         SELECT hi.* , qr.rez_hotel_check_in , qr.rez_hotel_check_out
         FROM hotel_info AS hi
         JOIN
-        (SELECT rh.*
-        FROM reserved_hotel AS rh
-        JOIN travel_info AS ti
-        ON rh.travel_no = ti.travel_no
-        WHERE user_no = #{param1}
-        AND ti.travel_reservation_status = "진행중") AS qr
+            (SELECT rh.*
+            FROM reserved_hotel AS rh
+            JOIN travel_info AS ti
+            ON rh.travel_no = ti.travel_no
+            WHERE user_no = #{param1}
+            AND ti.travel_reservation_status = "진행중") AS qr
         ON hi.hotel_no = qr.hotel_no
     </select>
 </mapper>

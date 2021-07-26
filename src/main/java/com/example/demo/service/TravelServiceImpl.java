@@ -17,4 +17,14 @@ public class TravelServiceImpl implements TravelService{
     public List<TravelInfo> getTravelInfoByUserNo(int no) {
         return travelDAO.getTravelInfoByUserNo(no);
     }
+
+    @Override
+    public int updateRezStatus(int no) {
+        return travelDAO.updateRezStatus(no);
+    }
+
+    @Override
+    public int updateCancelStatus(int no) {
+        return travelDAO.updateCancelStatus(no);
+    }
 }

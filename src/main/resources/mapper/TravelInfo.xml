@@ -11,4 +11,18 @@
         WHERE user_no = #{param1}
     </select>
 
+    <!-- 예약정보 취소됨으로 변경 -->
+    <update id="updateCancelStatus" parameterType="Integer">
+        update travel_info
+        set travel_reservation_status = '취소됨'
+        where travel_no = #{param1}
+    </update>
+
+    <!-- 예약정보 예약됨으로 변경 -->
+    <update id="updateRezStatus" parameterType="Integer">
+        update travel_info
+        set travel_reservation_status = '예약됨'
+        where travel_no = #{param1}
+    </update>
+
 </mapper>

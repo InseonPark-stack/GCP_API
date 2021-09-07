@@ -19,6 +19,12 @@ public class UserController {
     private UserService userServiceImpl;
 
     @ApiOperation(value = "회원정보 리스트 가져오기", response = List.class)
+    @GetMapping("/test")
+    public ResponseEntity<String> test(){
+        return new ResponseEntity<String>("한글이안돼요", HttpStatus.OK);
+    }
+
+    @ApiOperation(value = "회원정보 리스트 가져오기", response = List.class)
     @GetMapping
     public ResponseEntity<List<UserInfo>> getListUserInfo(){
         return new ResponseEntity<List<UserInfo>>(userServiceImpl.selectUser(), HttpStatus.OK);

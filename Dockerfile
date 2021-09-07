@@ -17,5 +17,6 @@
 # ENTRYPOINT ["java","-Djava.security.egd=file:/dev/.urandom","-jar","/app.jar"]
 
 FROM openjdk:11
-ADD /src/demo-0.0.1-plain.jar app.jar
+ADD demo-0.0.1-plain.jar app.jar
+ENV JAVA_OPTS=""
 ENTRYPOINT ["java","-jar","/app.jar"]
